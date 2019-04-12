@@ -14,6 +14,9 @@
 		8F425C77226070D9002F6B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F425C75226070D9002F6B63 /* LaunchScreen.storyboard */; };
 		8F425C82226070D9002F6B63 /* IdefixKeyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F425C81226070D9002F6B63 /* IdefixKeyboardTests.swift */; };
 		8F425C8D226070D9002F6B63 /* IdefixKeyboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F425C8C226070D9002F6B63 /* IdefixKeyboardUITests.swift */; };
+		8F425CA122607505002F6B63 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F425CA022607505002F6B63 /* KeyboardViewController.swift */; };
+		8F425CA522607505002F6B63 /* Idefix Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F425C9E22607505002F6B63 /* Idefix Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8F425CAB22607531002F6B63 /* IdefixKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CAA22607531002F6B63 /* IdefixKeyboard.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +34,28 @@
 			remoteGlobalIDString = 8F425C68226070D8002F6B63;
 			remoteInfo = IdefixKeyboard;
 		};
+		8F425CA322607505002F6B63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F425C61226070D8002F6B63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F425C9D22607505002F6B63;
+			remoteInfo = "Idefix Keyboard";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8F425CA922607505002F6B63 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8F425CA522607505002F6B63 /* Idefix Keyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8F425C69226070D8002F6B63 /* IdefixKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdefixKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +71,10 @@
 		8F425C88226070D9002F6B63 /* IdefixKeyboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IdefixKeyboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F425C8C226070D9002F6B63 /* IdefixKeyboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdefixKeyboardUITests.swift; sourceTree = "<group>"; };
 		8F425C8E226070D9002F6B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F425C9E22607505002F6B63 /* Idefix Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Idefix Keyboard.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F425CA022607505002F6B63 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		8F425CA222607505002F6B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F425CAA22607531002F6B63 /* IdefixKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdefixKeyboard.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +99,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F425C9B22607505002F6B63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +115,7 @@
 				8F425C6B226070D8002F6B63 /* IdefixKeyboard */,
 				8F425C80226070D9002F6B63 /* IdefixKeyboardTests */,
 				8F425C8B226070D9002F6B63 /* IdefixKeyboardUITests */,
+				8F425C9F22607505002F6B63 /* Idefix Keyboard */,
 				8F425C6A226070D8002F6B63 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +126,7 @@
 				8F425C69226070D8002F6B63 /* IdefixKeyboard.app */,
 				8F425C7D226070D9002F6B63 /* IdefixKeyboardTests.xctest */,
 				8F425C88226070D9002F6B63 /* IdefixKeyboardUITests.xctest */,
+				8F425C9E22607505002F6B63 /* Idefix Keyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +162,16 @@
 			path = IdefixKeyboardUITests;
 			sourceTree = "<group>";
 		};
+		8F425C9F22607505002F6B63 /* Idefix Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8F425CA022607505002F6B63 /* KeyboardViewController.swift */,
+				8F425CAA22607531002F6B63 /* IdefixKeyboard.xib */,
+				8F425CA222607505002F6B63 /* Info.plist */,
+			);
+			path = "Idefix Keyboard";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +182,12 @@
 				8F425C65226070D8002F6B63 /* Sources */,
 				8F425C66226070D8002F6B63 /* Frameworks */,
 				8F425C67226070D8002F6B63 /* Resources */,
+				8F425CA922607505002F6B63 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8F425CA422607505002F6B63 /* PBXTargetDependency */,
 			);
 			name = IdefixKeyboard;
 			productName = IdefixKeyboard;
@@ -181,6 +230,23 @@
 			productReference = 8F425C88226070D9002F6B63 /* IdefixKeyboardUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		8F425C9D22607505002F6B63 /* Idefix Keyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F425CA822607505002F6B63 /* Build configuration list for PBXNativeTarget "Idefix Keyboard" */;
+			buildPhases = (
+				8F425C9A22607505002F6B63 /* Sources */,
+				8F425C9B22607505002F6B63 /* Frameworks */,
+				8F425C9C22607505002F6B63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Idefix Keyboard";
+			productName = "Idefix Keyboard";
+			productReference = 8F425C9E22607505002F6B63 /* Idefix Keyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -202,6 +268,9 @@
 						CreatedOnToolsVersion = 10.2;
 						TestTargetID = 8F425C68226070D8002F6B63;
 					};
+					8F425C9D22607505002F6B63 = {
+						CreatedOnToolsVersion = 10.2;
+					};
 				};
 			};
 			buildConfigurationList = 8F425C64226070D8002F6B63 /* Build configuration list for PBXProject "IdefixKeyboard" */;
@@ -220,6 +289,7 @@
 				8F425C68226070D8002F6B63 /* IdefixKeyboard */,
 				8F425C7C226070D9002F6B63 /* IdefixKeyboardTests */,
 				8F425C87226070D9002F6B63 /* IdefixKeyboardUITests */,
+				8F425C9D22607505002F6B63 /* Idefix Keyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +316,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F425C9C22607505002F6B63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F425CAB22607531002F6B63 /* IdefixKeyboard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +355,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F425C9A22607505002F6B63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F425CA122607505002F6B63 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,6 +375,11 @@
 			isa = PBXTargetDependency;
 			target = 8F425C68226070D8002F6B63 /* IdefixKeyboard */;
 			targetProxy = 8F425C89226070D9002F6B63 /* PBXContainerItemProxy */;
+		};
+		8F425CA422607505002F6B63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F425C9D22607505002F6B63 /* Idefix Keyboard */;
+			targetProxy = 8F425CA322607505002F6B63 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -431,6 +522,7 @@
 		8F425C92226070D9002F6B63 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J3N5YFN2U;
@@ -449,6 +541,7 @@
 		8F425C93226070D9002F6B63 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J3N5YFN2U;
@@ -546,6 +639,44 @@
 			};
 			name = Release;
 		};
+		8F425CA622607505002F6B63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J3N5YFN2U;
+				INFOPLIST_FILE = "Idefix Keyboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kostekli.IdefixKeyboard.Idefix-Keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F425CA722607505002F6B63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7J3N5YFN2U;
+				INFOPLIST_FILE = "Idefix Keyboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kostekli.IdefixKeyboard.Idefix-Keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -581,6 +712,15 @@
 			buildConfigurations = (
 				8F425C98226070D9002F6B63 /* Debug */,
 				8F425C99226070D9002F6B63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F425CA822607505002F6B63 /* Build configuration list for PBXNativeTarget "Idefix Keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F425CA622607505002F6B63 /* Debug */,
+				8F425CA722607505002F6B63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
