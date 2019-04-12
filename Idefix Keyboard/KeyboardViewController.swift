@@ -108,14 +108,29 @@ class KeyboardViewController: UIInputViewController {
     func changeCaps(containerView: UIView) {
         for view in containerView.subviews {
             if let button = view as? UIButton {
-                let buttonTitle = button.titleLabel!.text
-                if capsLockOn {
-                    let text = buttonTitle!.uppercased()
-                    button.setTitle("\(text)", for: .normal)
-                } else {
-                    let text = buttonTitle!.lowercased()
-                    button.setTitle("\(text)", for: .normal)
+                if let buttonTitle = button.titleLabel!.text{
+                    if capsLockOn {
+                        
+                        if buttonTitle == "i" {
+                            button.setTitle("İ", for: .normal)
+                        }else{
+                            let text = buttonTitle.uppercased()
+                            button.setTitle("\(text)", for: .normal)
+                        }
+                        
+                    } else {
+                        if buttonTitle == "İ" {
+                            button.setTitle("i", for: .normal)
+                        }else if buttonTitle == "I"{
+                            button.setTitle("ı", for: .normal)
+                        }else{
+                            let text = buttonTitle.lowercased()
+                            button.setTitle("\(text)", for: .normal)
+                        }
+                        
+                    }
                 }
+                
             }
         }
     }

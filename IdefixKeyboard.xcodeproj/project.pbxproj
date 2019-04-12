@@ -17,6 +17,9 @@
 		8F425CA122607505002F6B63 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F425CA022607505002F6B63 /* KeyboardViewController.swift */; };
 		8F425CA522607505002F6B63 /* Idefix Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F425C9E22607505002F6B63 /* Idefix Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8F425CAB22607531002F6B63 /* IdefixKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CAA22607531002F6B63 /* IdefixKeyboard.xib */; };
+		8F425CAE22608C13002F6B63 /* global.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CAD22608C13002F6B63 /* global.png */; };
+		8F425CB022608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CAF22608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png */; };
+		8F425CB222608C20002F6B63 /* backspace-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CB122608C20002F6B63 /* backspace-arrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		8F425CA022607505002F6B63 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		8F425CA222607505002F6B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F425CAA22607531002F6B63 /* IdefixKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdefixKeyboard.xib; sourceTree = "<group>"; };
+		8F425CAD22608C13002F6B63 /* global.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = global.png; sourceTree = "<group>"; };
+		8F425CAF22608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up-on-a-black-circle-background.png"; sourceTree = "<group>"; };
+		8F425CB122608C20002F6B63 /* backspace-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backspace-arrow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +143,8 @@
 				8F425C6C226070D8002F6B63 /* AppDelegate.swift */,
 				8F425C6E226070D8002F6B63 /* ViewController.swift */,
 				8F425C70226070D8002F6B63 /* Main.storyboard */,
-				8F425C73226070D9002F6B63 /* Assets.xcassets */,
 				8F425C75226070D9002F6B63 /* LaunchScreen.storyboard */,
+				8F425C73226070D9002F6B63 /* Assets.xcassets */,
 				8F425C78226070D9002F6B63 /* Info.plist */,
 			);
 			path = IdefixKeyboard;
@@ -165,11 +171,22 @@
 		8F425C9F22607505002F6B63 /* Idefix Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				8F425CAC22608C08002F6B63 /* Icons */,
 				8F425CA022607505002F6B63 /* KeyboardViewController.swift */,
 				8F425CAA22607531002F6B63 /* IdefixKeyboard.xib */,
 				8F425CA222607505002F6B63 /* Info.plist */,
 			);
 			path = "Idefix Keyboard";
+			sourceTree = "<group>";
+		};
+		8F425CAC22608C08002F6B63 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				8F425CAF22608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png */,
+				8F425CB122608C20002F6B63 /* backspace-arrow.png */,
+				8F425CAD22608C13002F6B63 /* global.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,7 +340,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F425CB022608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png in Resources */,
+				8F425CAE22608C13002F6B63 /* global.png in Resources */,
 				8F425CAB22607531002F6B63 /* IdefixKeyboard.xib in Resources */,
+				8F425CB222608C20002F6B63 /* backspace-arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
