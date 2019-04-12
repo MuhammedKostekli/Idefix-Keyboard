@@ -551,11 +551,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ius-tu-Ahv" userLabel="Row 4">
                             <rect key="frame" x="0.0" y="172" width="376" height="42"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyf-rj-zg2">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyf-rj-zg2">
                                     <rect key="frame" x="8" y="1" width="30" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="dy0-2d-SVD"/>
+                                        <constraint firstAttribute="width" constant="30" id="s18-1d-xu4"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <state key="normal" title="1/2">
+                                    <state key="normal" title="123" image="more.png">
                                         <color key="titleColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -563,35 +566,11 @@
                                         <action selector="charSetPressedWithButton:" destination="-1" eventType="touchUpInside" id="UJ6-CR-i0X"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jo8-1N-xVo">
-                                    <rect key="frame" x="129" y="1" width="132" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <state key="normal" title="Boşluk">
-                                        <color key="titleColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="spacePressedWithButton:" destination="-1" eventType="touchUpInside" id="7qR-SZ-TLX"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnu-pT-lyT">
-                                    <rect key="frame" x="289" y="1" width="84" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <state key="normal" title="Geç">
-                                        <color key="titleColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="returnPressedWithButton:" destination="-1" eventType="touchUpInside" id="fhN-K8-IDC"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua0-Ib-9ur">
-                                    <rect key="frame" x="59" y="7" width="30" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua0-Ib-9ur">
+                                    <rect key="frame" x="60" y="6" width="30" height="30"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="40" id="BrQ-QH-Lj8"/>
-                                        <constraint firstAttribute="height" constant="40" id="x4c-m8-HS7"/>
+                                        <constraint firstAttribute="width" constant="30" id="isS-ir-ffq"/>
+                                        <constraint firstAttribute="height" constant="30" id="r5A-5F-9Cu"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <state key="normal" title="KB" image="global.png">
@@ -602,11 +581,49 @@
                                         <action selector="nextKeyboardPressedWithButton:" destination="-1" eventType="touchUpInside" id="gL1-RR-lV4"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnu-pT-lyT">
+                                    <rect key="frame" x="289" y="1" width="84" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="84" id="T5v-Ty-JAp"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Geç">
+                                        <color key="titleColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="returnPressedWithButton:" destination="-1" eventType="touchUpInside" id="fhN-K8-IDC"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jo8-1N-xVo">
+                                    <rect key="frame" x="116" y="1" width="165" height="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Boşluk">
+                                        <color key="titleColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="spacePressedWithButton:" destination="-1" eventType="touchUpInside" id="7qR-SZ-TLX"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="376" id="57l-zo-tuW"/>
+                                <constraint firstItem="Tyf-rj-zg2" firstAttribute="top" secondItem="ius-tu-Ahv" secondAttribute="top" constant="1" id="H9Z-uh-w8J"/>
                                 <constraint firstAttribute="height" constant="42" id="JBo-rE-4H8"/>
+                                <constraint firstItem="Tyf-rj-zg2" firstAttribute="leading" secondItem="ius-tu-Ahv" secondAttribute="leading" constant="8" id="Ogn-EO-0po"/>
+                                <constraint firstAttribute="trailing" secondItem="Vnu-pT-lyT" secondAttribute="trailing" constant="3" id="RAD-PR-SKg"/>
+                                <constraint firstItem="Vnu-pT-lyT" firstAttribute="top" secondItem="ius-tu-Ahv" secondAttribute="top" constant="1" id="VaM-Fg-vdI"/>
+                                <constraint firstAttribute="bottom" secondItem="Tyf-rj-zg2" secondAttribute="bottom" constant="1" id="Xmm-Sb-sNe"/>
+                                <constraint firstItem="Jo8-1N-xVo" firstAttribute="leading" secondItem="ua0-Ib-9ur" secondAttribute="trailing" constant="26" id="baf-4l-IHJ"/>
+                                <constraint firstAttribute="bottom" secondItem="ua0-Ib-9ur" secondAttribute="bottom" constant="6" id="bqj-7s-HOj"/>
+                                <constraint firstAttribute="bottom" secondItem="Jo8-1N-xVo" secondAttribute="bottom" constant="1" id="fyx-4H-YcS"/>
+                                <constraint firstItem="ua0-Ib-9ur" firstAttribute="leading" secondItem="Tyf-rj-zg2" secondAttribute="trailing" constant="22" id="gaq-US-fOL"/>
+                                <constraint firstItem="Vnu-pT-lyT" firstAttribute="leading" secondItem="Jo8-1N-xVo" secondAttribute="trailing" constant="8" id="qcq-US-lk9"/>
+                                <constraint firstItem="Jo8-1N-xVo" firstAttribute="top" secondItem="ius-tu-Ahv" secondAttribute="top" constant="1" id="s2Q-tI-XyP"/>
+                                <constraint firstItem="ua0-Ib-9ur" firstAttribute="top" secondItem="ius-tu-Ahv" secondAttribute="top" constant="6" id="suq-Zs-vet"/>
+                                <constraint firstAttribute="bottom" secondItem="Vnu-pT-lyT" secondAttribute="bottom" constant="1" id="xI8-Db-eSn"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLc-rC-JQf" userLabel="Char Set 1">
@@ -1052,5 +1069,6 @@
         <image name="arrow-up-on-a-black-circle-background.png" width="384" height="384"/>
         <image name="backspace-arrow.png" width="384" height="384"/>
         <image name="global.png" width="384" height="384"/>
+        <image name="more.png" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>

@@ -20,6 +20,7 @@
 		8F425CAE22608C13002F6B63 /* global.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CAD22608C13002F6B63 /* global.png */; };
 		8F425CB022608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CAF22608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png */; };
 		8F425CB222608C20002F6B63 /* backspace-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CB122608C20002F6B63 /* backspace-arrow.png */; };
+		8F425CB422609D16002F6B63 /* more.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F425CB322609D16002F6B63 /* more.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		8F425CAD22608C13002F6B63 /* global.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = global.png; sourceTree = "<group>"; };
 		8F425CAF22608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-up-on-a-black-circle-background.png"; sourceTree = "<group>"; };
 		8F425CB122608C20002F6B63 /* backspace-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backspace-arrow.png"; sourceTree = "<group>"; };
+		8F425CB322609D16002F6B63 /* more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		8F425CAC22608C08002F6B63 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				8F425CB322609D16002F6B63 /* more.png */,
 				8F425CAF22608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png */,
 				8F425CB122608C20002F6B63 /* backspace-arrow.png */,
 				8F425CAD22608C13002F6B63 /* global.png */,
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F425CB022608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png in Resources */,
+				8F425CB422609D16002F6B63 /* more.png in Resources */,
 				8F425CAE22608C13002F6B63 /* global.png in Resources */,
 				8F425CAB22607531002F6B63 /* IdefixKeyboard.xib in Resources */,
 				8F425CB222608C20002F6B63 /* backspace-arrow.png in Resources */,

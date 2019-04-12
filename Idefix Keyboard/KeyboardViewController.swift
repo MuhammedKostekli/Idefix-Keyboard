@@ -13,6 +13,7 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet var nextKeyboardButton: UIButton!
     
     var capsLockOn = true
+    var currentCharSet = 0
     
     @IBOutlet weak var row1: UIView!
     @IBOutlet weak var row2: UIView!
@@ -94,14 +95,14 @@ class KeyboardViewController: UIInputViewController {
     }
     
     @IBAction func charSetPressed(button: UIButton) {
-        if button.titleLabel!.text == "1/2" {
+        if currentCharSet == 0 {
             charSet1.isHidden = true
             charSet2.isHidden = false
-            button.setTitle("2/2", for: .normal)
-        } else if button.titleLabel!.text == "2/2" {
+            currentCharSet = 1
+        } else {
             charSet1.isHidden = false
             charSet2.isHidden = true
-            button.setTitle("1/2", for: .normal)
+            currentCharSet = 0
         }
     }
     
@@ -114,8 +115,10 @@ class KeyboardViewController: UIInputViewController {
                         if buttonTitle == "i" {
                             button.setTitle("İ", for: .normal)
                         }else{
-                            let text = buttonTitle.uppercased()
-                            button.setTitle("\(text)", for: .normal)
+                            if buttonTitle.count == 1{
+                                let text = buttonTitle.uppercased()
+                                button.setTitle("\(text)", for: .normal)
+                            }
                         }
                         
                     } else {
@@ -124,8 +127,11 @@ class KeyboardViewController: UIInputViewController {
                         }else if buttonTitle == "I"{
                             button.setTitle("ı", for: .normal)
                         }else{
-                            let text = buttonTitle.lowercased()
-                            button.setTitle("\(text)", for: .normal)
+                            if buttonTitle.count == 1{
+                                let text = buttonTitle.lowercased()
+                                button.setTitle("\(text)", for: .normal)
+                                
+                            }
                         }
                         
                     }
