@@ -43,6 +43,9 @@
                                 <color key="titleColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="suggestedButtonClicked:" destination="-1" eventType="touchUpInside" id="nvX-t9-6qe"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-eT-rO4" userLabel="Suggestion2">
                             <rect key="frame" x="126" y="0.0" width="124" height="37"/>
@@ -55,6 +58,9 @@
                                 <color key="titleColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="suggestedButtonClicked:" destination="-1" eventType="touchUpInside" id="WIz-Bj-hVA"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QM2-N1-b6q" userLabel="Suggestion3">
                             <rect key="frame" x="252" y="0.0" width="124" height="37"/>
@@ -68,6 +74,9 @@
                                 <color key="titleColor" red="0.33333334329999997" green="0.33333334329999997" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="suggestedButtonClicked:" destination="-1" eventType="touchUpInside" id="x72-6e-KUg"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MZ-qs-17S" userLabel="Row 1">
                             <rect key="frame" x="0.0" y="80" width="376" height="42"/>

@@ -80,7 +80,7 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func keyPressed(button: UIButton) {
         let string = button.titleLabel!.text
         (textDocumentProxy as UIKeyInput).insertText("\(string!)")
-        let currentStr = (textDocumentProxy.documentContextBeforeInput ?? "") + (textDocumentProxy.documentContextAfterInput ?? "")
+        let currentStr = findCurrentWord()
         DispatchQueue.main.async {
             self.changeSuggestionButtons(inputText: currentStr)
         }
@@ -94,7 +94,7 @@ class KeyboardViewController: UIInputViewController {
     
     @IBAction func backSpacePressed(button: UIButton) {
         (textDocumentProxy as UIKeyInput).deleteBackward()
-        let currentStr = (textDocumentProxy.documentContextBeforeInput ?? "") + (textDocumentProxy.documentContextAfterInput ?? "")
+        let currentStr = findCurrentWord()
         DispatchQueue.main.async {
             self.changeSuggestionButtons(inputText: currentStr)
         }
@@ -189,5 +189,30 @@ class KeyboardViewController: UIInputViewController {
         }
         return false
     }
-
+    
+    // suggestion buttons clicked
+    @IBAction func suggestedButtonClicked(_ sender: UIButton) {
+        if let completeWord = sender.title(for: .normal){
+            if completeWord != ""{
+                let currentStr = findCurrentWord()
+                print(currentStr)
+                print(completeWord)
+                makeAutocompletion(completeWord: completeWord, currentWord: currentStr)
+            }
+        }
+        
+    }
+    
+    // Find current writing Text
+    func findCurrentWord() -> String{
+        let FullStr = (textDocumentProxy.documentContextBeforeInput ?? "") + (textDocumentProxy.documentContextAfterInput ?? "")
+        let currentStrArray = FullStr.components(separatedBy: " ")
+        let currentStr = currentStrArray[currentStrArray.count - 1]
+        return currentStr
+    }
+    
+    // Make AutoCompletion
+    func makeAutocompletion(completeWord :String, currentWord: String){
+        
+    }
 }
