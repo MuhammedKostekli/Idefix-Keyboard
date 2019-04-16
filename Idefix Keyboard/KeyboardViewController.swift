@@ -28,7 +28,10 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var charSet2: UIView!
     
     // Saved Strings for Auto Complete
-    var savedStrings = ["Bafetimbi","Galatasaray","Galata","Dürüm"]
+    var savedStrings = ["Bafetimbi","Galatasaray","Galata","Dürüm","Gomis","Klubü","Kulesi","Döner"]
+    var nextStrings = ["Gomis","Klubü","Kulesi","Döner"]
+    
+    var autoCompletionStarted = false
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -78,6 +81,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     @IBAction func keyPressed(button: UIButton) {
+        autoCompletionStarted = false
         let string = button.titleLabel!.text
         (textDocumentProxy as UIKeyInput).insertText("\(string!)")
         let currentStr = findCurrentWord()
@@ -93,6 +97,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     @IBAction func backSpacePressed(button: UIButton) {
+        autoCompletionStarted = false
         (textDocumentProxy as UIKeyInput).deleteBackward()
         let currentStr = findCurrentWord()
         DispatchQueue.main.async {
@@ -101,14 +106,17 @@ class KeyboardViewController: UIInputViewController {
     }
     
     @IBAction func spacePressed(button: UIButton) {
+        autoCompletionStarted = false
         (textDocumentProxy as UIKeyInput).insertText(" ")
     }
     
     @IBAction func returnPressed(button: UIButton) {
+        autoCompletionStarted = false
         (textDocumentProxy as UIKeyInput).insertText("\n")
     }
     
     @IBAction func charSetPressed(button: UIButton) {
+        autoCompletionStarted = false
         if currentCharSet == 0 {
             charSet1.isHidden = false
             charSet2.isHidden = true
@@ -121,6 +129,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func changeCaps(containerView: UIView) {
+        autoCompletionStarted = false
         for view in containerView.subviews {
             if let button = view as? UIButton {
                 if let buttonTitle = button.titleLabel!.text{
@@ -195,9 +204,11 @@ class KeyboardViewController: UIInputViewController {
         if let completeWord = sender.title(for: .normal){
             if completeWord != ""{
                 let currentStr = findCurrentWord()
-                print(currentStr)
-                print(completeWord)
                 makeAutocompletion(completeWord: completeWord, currentWord: currentStr)
+                clearSuggestionButtons()
+                let nextWord = findCurrentNextWord(currWord: completeWord)
+                changeSuggestionButtons(inputText: nextWord)
+                autoCompletionStarted = true
             }
         }
         
@@ -211,8 +222,26 @@ class KeyboardViewController: UIInputViewController {
         return currentStr
     }
     
+    func findCurrentNextWord(currWord: String) -> String{
+        var nextWord = ""
+        if let index = savedStrings.firstIndex(of: currWord){
+            if(index < nextStrings.count){
+                nextWord = nextStrings[index]
+            }
+        }
+
+        return nextWord
+    }
+    
     // Make AutoCompletion
     func makeAutocompletion(completeWord :String, currentWord: String){
-        
+        if !autoCompletionStarted{
+            for _ in 0...currentWord.count-1 {
+                (textDocumentProxy as UIKeyInput).deleteBackward()
+            }
+            (textDocumentProxy as UIKeyInput).insertText(completeWord)
+        }else{
+            (textDocumentProxy as UIKeyInput).insertText(" " + completeWord)
+        }
     }
 }
