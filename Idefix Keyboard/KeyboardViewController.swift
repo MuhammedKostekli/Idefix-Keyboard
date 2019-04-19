@@ -28,7 +28,7 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var charSet1: UIView!
     @IBOutlet weak var charSet2: UIView!
     
-    
+    // All words Lists in json
     var wordsLists = [String()]
     var nextWordsList = [NSArray()]
 
