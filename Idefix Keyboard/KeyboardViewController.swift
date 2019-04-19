@@ -13,10 +13,13 @@ class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
     
+    // Delete text button
+    @IBOutlet weak var deleteKeyboardButton: UIButton!
+    
     // Auto Complete Buttons
     @IBOutlet var suggestionButton: [UIButton] = []
     
-    
+    // Control capsLock variables
     var capsLockOn = true
     var currentCharSet = 0
     
@@ -31,8 +34,14 @@ class KeyboardViewController: UIInputViewController {
     // All words Lists in json
     var wordsLists = [String()]
     var nextWordsList = [NSArray()]
-
+    
+    // control for auto complete sequence
     var autoCompletionStarted = false
+    
+    // Timer for long delete
+    var timer: Timer?
+    
+
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -52,6 +61,12 @@ class KeyboardViewController: UIInputViewController {
         
         charSet1.isHidden = true
         clearSuggestionButtons()
+        
+        // Make long press settings
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
+        deleteKeyboardButton.addGestureRecognizer(longPress)
+        
+        
     }
     
     override func textWillChange(_ textInput: UITextInput?) {
@@ -86,9 +101,14 @@ class KeyboardViewController: UIInputViewController {
     
     @IBAction func keyPressed(button: UIButton) {
         autoCompletionStarted = false
+        
+        // Take button letter
         let string = button.titleLabel!.text
+        // Insert it to textField
         (textDocumentProxy as UIKeyInput).insertText("\(string!)")
+        // find Last word on Text Field
         let currentStr = findCurrentWord()
+        // Start Suggestion Process
         DispatchQueue.main.async {
             self.changeSuggestionButtons(inputText: currentStr)
         }
@@ -171,8 +191,11 @@ class KeyboardViewController: UIInputViewController {
     // Check for Suggestion Buttons
     func changeSuggestionButtons(inputText: String){
         clearSuggestionButtons()
+        // Search on wordsLists
         for str in wordsLists{
+            // Find suggested words
             if(str.lowercased().contains(inputText.lowercased()) && str.count >= inputText.count && str.prefix(1).caseInsensitiveCompare(inputText.prefix(1)) == .orderedSame){
+                // Fill free suggestion Buttons
                 for button in suggestionButton{
                     if button.title(for: .normal) == "" && !wordIsAlreadySuggest(inputText: str){
                         button.setTitle(str, for: .normal)
@@ -185,6 +208,7 @@ class KeyboardViewController: UIInputViewController {
         
     }
     
+    // Change suggestion buttons after one suggestion button clicked
     func changeSuggestionButtonsForNext(nextWords: [String]){
         var count = 0
         for word in nextWords{
@@ -234,6 +258,7 @@ class KeyboardViewController: UIInputViewController {
         return currentStr
     }
     
+    // find next word after current words
     func findNextWords(currWord: String) -> [String]{
         var nextWords = [String()]
         if let index = wordsLists.firstIndex(of: currWord){
@@ -275,4 +300,15 @@ class KeyboardViewController: UIInputViewController {
             }
         }
     }
+    
+    // If long press occured on deleted button
+    @objc func longPress(gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            timer = Timer.scheduledTimer(timeInterval: 0.06, target: self, selector: #selector(backSpacePressed(button:)), userInfo: nil, repeats: true)
+        } else if gesture.state == .ended || gesture.state == .cancelled {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+   
 }

@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="charSet1" destination="iLc-rC-JQf" id="Mg3-XP-zGh"/>
                 <outlet property="charSet2" destination="l4F-ng-Wvg" id="1rB-tC-wLF"/>
+                <outlet property="deleteKeyboardButton" destination="IJc-jH-kcQ" id="zFD-Ze-D3k"/>
                 <outlet property="row1" destination="7MZ-qs-17S" id="QzC-1h-q2a"/>
                 <outlet property="row2" destination="0Ds-4T-Yfp" id="Jwb-2f-J0z"/>
                 <outlet property="row3" destination="W4V-W8-C5G" id="KiO-CD-GuW"/>
