@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
@@ -27,10 +28,10 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var charSet1: UIView!
     @IBOutlet weak var charSet2: UIView!
     
-    // Saved Strings for Auto Complete
-    var savedStrings = ["Bafetimbi","Galatasaray","Galata","Dürüm","Gomis","Klubü","Kulesi","Döner"]
-    var nextStrings = ["Gomis","Klubü","Kulesi","Döner"]
     
+    var wordsLists = [String()]
+    var nextWordsList = [NSArray()]
+
     var autoCompletionStarted = false
     
     override func updateViewConstraints() {
@@ -41,10 +42,13 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Parse words arrays
+        ParseWordsJson()
+        
         let nib = UINib(nibName: "IdefixKeyboard", bundle: nil)
         let objects = nib.instantiate(withOwner: self, options: nil)
         view = objects[0] as? UIView
-        
         
         charSet1.isHidden = true
         clearSuggestionButtons()
@@ -167,8 +171,8 @@ class KeyboardViewController: UIInputViewController {
     // Check for Suggestion Buttons
     func changeSuggestionButtons(inputText: String){
         clearSuggestionButtons()
-        for str in savedStrings{
-            if(str.lowercased().contains(inputText.lowercased()) && str.count >= inputText.count){
+        for str in wordsLists{
+            if(str.lowercased().contains(inputText.lowercased()) && str.count >= inputText.count && str.prefix(1).caseInsensitiveCompare(inputText.prefix(1)) == .orderedSame){
                 for button in suggestionButton{
                     if button.title(for: .normal) == "" && !wordIsAlreadySuggest(inputText: str){
                         button.setTitle(str, for: .normal)
@@ -179,6 +183,14 @@ class KeyboardViewController: UIInputViewController {
         }
         
         
+    }
+    
+    func changeSuggestionButtonsForNext(nextWords: [String]){
+        var count = 0
+        for word in nextWords{
+            suggestionButton[count].setTitle(word, for: .normal)
+            count += 1
+        }
     }
     
     // Clear title of suggestion buttons
@@ -206,8 +218,8 @@ class KeyboardViewController: UIInputViewController {
                 let currentStr = findCurrentWord()
                 makeAutocompletion(completeWord: completeWord, currentWord: currentStr)
                 clearSuggestionButtons()
-                let nextWord = findCurrentNextWord(currWord: completeWord)
-                changeSuggestionButtons(inputText: nextWord)
+                let nextWords = findNextWords(currWord: completeWord)
+                changeSuggestionButtonsForNext(nextWords: nextWords)
                 autoCompletionStarted = true
             }
         }
@@ -222,15 +234,12 @@ class KeyboardViewController: UIInputViewController {
         return currentStr
     }
     
-    func findCurrentNextWord(currWord: String) -> String{
-        var nextWord = ""
-        if let index = savedStrings.firstIndex(of: currWord){
-            if(index < nextStrings.count){
-                nextWord = nextStrings[index]
-            }
+    func findNextWords(currWord: String) -> [String]{
+        var nextWords = [String()]
+        if let index = wordsLists.firstIndex(of: currWord){
+            nextWords = nextWordsList[index] as! [String]
         }
-
-        return nextWord
+        return nextWords
     }
     
     // Make AutoCompletion
@@ -239,9 +248,31 @@ class KeyboardViewController: UIInputViewController {
             for _ in 0...currentWord.count-1 {
                 (textDocumentProxy as UIKeyInput).deleteBackward()
             }
-            (textDocumentProxy as UIKeyInput).insertText(completeWord)
+            (textDocumentProxy as UIKeyInput).insertText(completeWord + " ")
         }else{
-            (textDocumentProxy as UIKeyInput).insertText(" " + completeWord)
+            (textDocumentProxy as UIKeyInput).insertText(completeWord + " ")
+        }
+    }
+
+    // Parsing for Supporting Language
+    func ParseWordsJson(){
+        if let path = Bundle.main.path(forResource: "name_prediction", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let JSONResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String,AnyObject>
+                
+                if let data = JSONResult["data"] as? NSArray{
+                    if let allWords = data.value(forKey: "name") as? NSArray{
+                        if let allNextWords = data.value(forKey: "next_names") as? [NSArray]{
+                            self.wordsLists = allWords as! [String]
+                            self.nextWordsList = allNextWords
+                        }
+                    }
+                }
+                
+            } catch {
+                print("error parsing json")
+            }
         }
     }
 }
