@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0E910A2273504F00530C34 /* maths.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F0E91092273504E00530C34 /* maths.png */; };
 		8F425C6D226070D8002F6B63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F425C6C226070D8002F6B63 /* AppDelegate.swift */; };
 		8F425C6F226070D8002F6B63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F425C6E226070D8002F6B63 /* ViewController.swift */; };
 		8F425C72226070D8002F6B63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F425C70226070D8002F6B63 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F0E91092273504E00530C34 /* maths.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maths.png; sourceTree = "<group>"; };
 		8F425C69226070D8002F6B63 /* IdefixKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdefixKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F425C6C226070D8002F6B63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F425C6E226070D8002F6B63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				8F425CB322609D16002F6B63 /* more.png */,
 				8F425CAF22608C1A002F6B63 /* arrow-up-on-a-black-circle-background.png */,
+				8F0E91092273504E00530C34 /* maths.png */,
 				8F425CB122608C20002F6B63 /* backspace-arrow.png */,
 				8F425CAD22608C13002F6B63 /* global.png */,
 			);
@@ -351,6 +354,7 @@
 				8F425CAE22608C13002F6B63 /* global.png in Resources */,
 				8F712CB02269DEA400C3BA6F /* name_prediction.json in Resources */,
 				8F425CAB22607531002F6B63 /* IdefixKeyboard.xib in Resources */,
+				8F0E910A2273504F00530C34 /* maths.png in Resources */,
 				8F425CB222608C20002F6B63 /* backspace-arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
