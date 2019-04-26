@@ -28,8 +28,7 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var row3: UIView!
     @IBOutlet weak var row4: UIView!
     
-    @IBOutlet weak var charSet1: UIView!
-    @IBOutlet weak var charSet2: UIView!
+   
     
     // All words Lists in json
     var wordsLists = [String()]
@@ -59,7 +58,7 @@ class KeyboardViewController: UIInputViewController {
         let objects = nib.instantiate(withOwner: self, options: nil)
         view = objects[0] as? UIView
         
-        charSet1.isHidden = true
+        //charSet1.isHidden = true
         clearSuggestionButtons()
         
         // Make long press settings
@@ -130,6 +129,7 @@ class KeyboardViewController: UIInputViewController {
             if !capsLockOn{
                 capsLockPressed(button: deleteKeyboardButton)
             }
+            self.clearSuggestionButtons()
         }else{
             let currentStr = findCurrentWord()
             DispatchQueue.main.async {
@@ -148,23 +148,25 @@ class KeyboardViewController: UIInputViewController {
                 capsLockPressed(button: deleteKeyboardButton)
             }
         }
+        self.clearSuggestionButtons()
         (textDocumentProxy as UIKeyInput).insertText(" ")
     }
     
     @IBAction func returnPressed(button: UIButton) {
         autoCompletionStarted = false
+        self.clearSuggestionButtons()
         (textDocumentProxy as UIKeyInput).insertText("\n")
     }
     
     @IBAction func charSetPressed(button: UIButton) {
         autoCompletionStarted = false
         if currentCharSet == 0 {
-            charSet1.isHidden = false
-            charSet2.isHidden = true
+            //charSet1.isHidden = false
+            //charSet2.isHidden = true
             currentCharSet = 1
         } else {
-            charSet1.isHidden = true
-            charSet2.isHidden = false
+            //charSet1.isHidden = true
+            //charSet2.isHidden = false
             currentCharSet = 0
         }
     }
