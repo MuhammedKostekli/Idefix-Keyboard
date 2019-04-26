@@ -113,7 +113,7 @@ class KeyboardViewController: UIInputViewController {
             self.changeSuggestionButtons(inputText: currentStr)
         }
         button.transform = CGAffineTransform.identity
-        UIView.animate(withDuration: 0.05, animations: {
+        UIView.animate(withDuration: 0.01, animations: {
             button.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
         }, completion: {(_) -> Void in
             button.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -123,14 +123,31 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func backSpacePressed(button: UIButton) {
         autoCompletionStarted = false
         (textDocumentProxy as UIKeyInput).deleteBackward()
-        let currentStr = findCurrentWord()
-        DispatchQueue.main.async {
-            self.changeSuggestionButtons(inputText: currentStr)
+        let FullStr = (textDocumentProxy.documentContextBeforeInput ?? "") + (textDocumentProxy.documentContextAfterInput ?? "")
+        
+        // If all text deleted then change Caps
+        if FullStr == ""{
+            if !capsLockOn{
+                capsLockPressed(button: deleteKeyboardButton)
+            }
+        }else{
+            let currentStr = findCurrentWord()
+            DispatchQueue.main.async {
+                self.changeSuggestionButtons(inputText: currentStr)
+            }
         }
     }
     
     @IBAction func spacePressed(button: UIButton) {
         autoCompletionStarted = false
+        let FullStr = (textDocumentProxy.documentContextBeforeInput ?? "") + (textDocumentProxy.documentContextAfterInput ?? "")
+        
+        // Make caps lock on after dot
+        if FullStr.last == "." {
+            if !capsLockOn{
+                capsLockPressed(button: deleteKeyboardButton)
+            }
+        }
         (textDocumentProxy as UIKeyInput).insertText(" ")
     }
     
