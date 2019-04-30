@@ -117,6 +117,8 @@ class KeyboardViewController: UIInputViewController {
         let string = button.titleLabel!.text
         // Insert it to textField
         (textDocumentProxy as UIKeyInput).insertText("\(string!)")
+        // Control for make lowercase
+        lowercaseAfterFirstLetter()
         // find Last word on Text Field
         let currentStr = findCurrentWord()
         // Start Suggestion Process
@@ -227,6 +229,17 @@ class KeyboardViewController: UIInputViewController {
                     }
                 }
                 
+            }
+        }
+    }
+    
+    func lowercaseAfterFirstLetter(){
+        let FullStr = (textDocumentProxy.documentContextBeforeInput ?? "") + (textDocumentProxy.documentContextAfterInput ?? "")
+        
+        // Make caps lock on after dot
+        if FullStr.count == 1 {
+            if capsLockOn{
+                capsLockPressed(button: deleteKeyboardButton)
             }
         }
     }
