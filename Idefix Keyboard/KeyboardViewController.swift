@@ -15,6 +15,8 @@ class KeyboardViewController: UIInputViewController {
     
     // Delete text button
     @IBOutlet weak var deleteKeyboardButton: UIButton!
+    @IBOutlet weak var deleteKeyboardButton2: UIButton!
+    @IBOutlet weak var deleteKeyboardButton3: UIButton!
     
     // Auto Complete Buttons
     @IBOutlet var suggestionButton: [UIButton] = []
@@ -28,7 +30,11 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var row3: UIView!
     @IBOutlet weak var row4: UIView!
     
-   
+    @IBOutlet weak var LettersView: UIView!
+    
+    @IBOutlet weak var NumbersView: UIView!
+    
+    @IBOutlet weak var Numbers2View: UIView!
     
     // All words Lists in json
     var wordsLists = [String()]
@@ -63,7 +69,13 @@ class KeyboardViewController: UIInputViewController {
         
         // Make long press settings
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
+        
+        let longPress2 = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
+        
+        let longPress3 = UILongPressGestureRecognizer(target: self, action: #selector(self.longPress))
         deleteKeyboardButton.addGestureRecognizer(longPress)
+        deleteKeyboardButton2.addGestureRecognizer(longPress2)
+        deleteKeyboardButton3.addGestureRecognizer(longPress3)
         
         
     }
@@ -161,13 +173,25 @@ class KeyboardViewController: UIInputViewController {
     @IBAction func charSetPressed(button: UIButton) {
         autoCompletionStarted = false
         if currentCharSet == 0 {
-            //charSet1.isHidden = false
-            //charSet2.isHidden = true
+            LettersView.isHidden = true
+            NumbersView.isHidden = false
+            Numbers2View.isHidden = true
             currentCharSet = 1
         } else {
-            //charSet1.isHidden = true
-            //charSet2.isHidden = false
+            LettersView.isHidden = false
+            NumbersView.isHidden = true
             currentCharSet = 0
+        }
+    }
+    
+    
+    @IBAction func changeToNumberViewPressed(_ sender: Any) {
+        if(!NumbersView.isHidden){
+            NumbersView.isHidden = true
+            Numbers2View.isHidden = false
+        }else{
+            NumbersView.isHidden = false
+            Numbers2View.isHidden = true
         }
     }
     
@@ -329,5 +353,6 @@ class KeyboardViewController: UIInputViewController {
             timer = nil
         }
     }
+    
    
 }
