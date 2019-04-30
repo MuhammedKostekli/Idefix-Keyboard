@@ -366,6 +366,4 @@ class KeyboardViewController: UIInputViewController {
             timer = nil
         }
     }
-    
-   
 }
